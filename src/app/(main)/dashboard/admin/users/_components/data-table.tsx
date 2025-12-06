@@ -16,7 +16,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useDataTableInstance } from "@/hooks/use-data-table-instance";
 
-
 import { dashboardColumns } from "./columns";
 import { sectionSchema } from "./schema";
 
@@ -56,7 +55,7 @@ export function DataTable({ data: initialData }: { data: z.infer<typeof sectionS
           <DataTableViewOptions table={table} />
           <Button variant="outline" size="sm">
             <Plus />
-            <span className="hidden lg:inline">Add Section</span>
+            <span className="hidden lg:inline">Add User</span>
           </Button>
         </div>
       </div>

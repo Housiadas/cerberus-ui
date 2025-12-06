@@ -70,23 +70,23 @@ export const sidebarItems: NavGroup[] = [
     items: [
       {
         title: "Users",
-        url: "/dashboard/coming-soon",
+        url: "/dashboard/admin/users",
         icon: Users,
       },
       {
         title: "Roles",
-        url: "/dashboard/coming-soon",
+        url: "/dashboard/admin/roles",
         icon: Lock,
-      },
-      {
-        title: "Email",
-        url: "/dashboard/coming-soon",
-        icon: Mail,
       },
       {
         title: "Invoice",
         url: "/dashboard/coming-soon",
         icon: ReceiptText,
+      },
+      {
+        title: "Email",
+        url: "/dashboard/coming-soon",
+        icon: Mail,
       },
       {
         title: "Authentication",
