@@ -3,9 +3,8 @@ import { ReactNode } from "react";
 import { cookies } from "next/headers";
 
 import { AppSidebar } from "@/app/(main)/dashboard/_components/sidebar/app-sidebar";
-import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { users } from "@/data/users";
+import { user } from "@/data/user";
 import { cn } from "@/lib/utils";
 import { getPreference } from "@/server/server-actions";
 import {
@@ -19,10 +18,7 @@ import {
   type NavbarStyle,
 } from "@/types/preferences/layout";
 
-import { AccountSwitcher } from "./_components/sidebar/account-switcher";
-import { LayoutControls } from "./_components/sidebar/layout-controls";
-import { SearchDialog } from "./_components/sidebar/search-dialog";
-import { ThemeSwitcher } from "./_components/sidebar/theme-switcher";
+import { Account, ThemeSwitcher } from "./_components/sidebar";
 
 export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();
@@ -32,15 +28,8 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
     getPreference<SidebarVariant>("sidebar_variant", SIDEBAR_VARIANT_VALUES, "inset"),
     getPreference<SidebarCollapsible>("sidebar_collapsible", SIDEBAR_COLLAPSIBLE_VALUES, "icon"),
     getPreference<ContentLayout>("content_layout", CONTENT_LAYOUT_VALUES, "centered"),
-    getPreference<NavbarStyle>("navbar_style", NAVBAR_STYLE_VALUES, "scroll"),
+    getPreference<NavbarStyle>("navbar_style", NAVBAR_STYLE_VALUES, "sticky"),
   ]);
-
-  const layoutPreferences = {
-    contentLayout,
-    variant: sidebarVariant,
-    collapsible: sidebarCollapsible,
-    navbarStyle,
-  };
 
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
@@ -65,13 +54,10 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
           <div className="flex w-full items-center justify-between px-4 lg:px-6">
             <div className="flex items-center gap-1 lg:gap-2">
               <SidebarTrigger className="-ml-1" />
-              <Separator orientation="vertical" className="mx-2 data-[orientation=vertical]:h-4" />
-              <SearchDialog />
             </div>
             <div className="flex items-center gap-2">
-              <LayoutControls {...layoutPreferences} />
               <ThemeSwitcher />
-              <AccountSwitcher users={users} />
+              <Account user={user} />
             </div>
           </div>
         </header>

@@ -1,6 +1,5 @@
-# Next.js Admin Template with TypeScript & Shadcn UI
-
-**Studio Admin** - Includes multiple dashboards, authentication layouts, customizable theme presets, and more.
+# Cerberus UI
+The UI of Cerberus.
 
 ## Features
 
@@ -11,24 +10,6 @@
 - Authentication flows and screens  
 - Prebuilt dashboards (Default, CRM, Finance) with more coming soon  
 - Role-Based Access Control (RBAC) with config-driven UI and multi-tenant support *(planned)*  
-
-> [!NOTE]
-> The default dashboard uses the **shadcn neutral** theme.  
-> It also includes additional color presets inspired by [Tweakcn](https://tweakcn.com):  
->
-> - Tangerine  
-> - Neo Brutalism  
-> - Soft Pop  
->
-> You can create more presets by following the same structure as the existing ones.
-
-> Looking for the **Next.js 15** version?  
-> Check out the [`archive/next15`](https://github.com/arhamkhnz/next-shadcn-admin-dashboard/tree/archive/next15) branch.  
-> This branch contains the setup prior to upgrading to Next 16 and the React Compiler.
-
-> Looking for the **Next.js 14 + Tailwind CSS v3** version?  
-> Check out the [`archive/next14-tailwindv3`](https://github.com/arhamkhnz/next-shadcn-admin-dashboard/tree/archive/next14-tailwindv3) branch.  
-> It has a different color theme and is not actively maintained, but I try to keep it updated with major changes.  
 
 ## Tech Stack
 
@@ -71,12 +52,6 @@ For a full breakdown of the structure with examples, see the [Next Colocation Te
 
 You can run this project locally, or deploy it instantly with Vercel.
 
-### Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farhamkhnz%2Fnext-shadcn-admin-dashboard)
-
-_Deploy your own copy with one click._
-
 ### Run locally
 
 1. **Clone the repository**
@@ -100,15 +75,3 @@ _Deploy your own copy with one click._
    ```
 
 Your app will be running at [http://localhost:3000](http://localhost:3000)
-
----
-
-> [!IMPORTANT]  
-> This project is updated frequently. If you’re working from a fork or an older clone, pull the latest changes before syncing. Some updates may include breaking changes.
-
----
-
-Contributions are welcome. Feel free to open issues, feature requests, or start a discussion.
-
-
-**Happy Vibe Coding!**

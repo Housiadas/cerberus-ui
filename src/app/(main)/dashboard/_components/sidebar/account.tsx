@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { BadgeCheck, Bell, CreditCard, LogOut } from "lucide-react";
+import { BadgeCheck, CreditCard, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -15,10 +15,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn, getInitials } from "@/lib/utils";
 
-export function AccountSwitcher({
-  users,
+export function Account({
+  user,
 }: {
-  readonly users: ReadonlyArray<{
+  readonly user: Readonly<{
     readonly id: string;
     readonly name: string;
     readonly email: string;
@@ -26,7 +26,7 @@ export function AccountSwitcher({
     readonly role: string;
   }>;
 }) {
-  const [activeUser, setActiveUser] = useState(users[0]);
+  const [activeUser, setActiveUser] = useState(user);
 
   return (
     <DropdownMenu>
@@ -37,24 +37,18 @@ export function AccountSwitcher({
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-56 space-y-1 rounded-lg" side="bottom" align="end" sideOffset={4}>
-        {users.map((user) => (
-          <DropdownMenuItem
-            key={user.email}
-            className={cn("p-0", user.id === activeUser.id && "bg-accent/50 border-l-primary border-l-2")}
-            onClick={() => setActiveUser(user)}
-          >
-            <div className="flex w-full items-center justify-between gap-2 px-1 py-1.5">
-              <Avatar className="size-9 rounded-lg">
-                <AvatarImage src={user.avatar || undefined} alt={user.name} />
-                <AvatarFallback className="rounded-lg">{getInitials(user.name)}</AvatarFallback>
-              </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">{user.name}</span>
-                <span className="truncate text-xs capitalize">{user.role}</span>
-              </div>
+        <DropdownMenuItem key={user.email} className={cn("p-0")} onClick={() => setActiveUser(user)}>
+          <div className="flex w-full items-center justify-between gap-2 px-1 py-1.5">
+            <Avatar className="size-9 rounded-lg">
+              <AvatarImage src={user.avatar || undefined} alt={user.name} />
+              <AvatarFallback className="rounded-lg">{getInitials(user.name)}</AvatarFallback>
+            </Avatar>
+            <div className="grid flex-1 text-left text-sm leading-tight">
+              <span className="truncate font-semibold">{user.name}</span>
+              <span className="truncate text-xs capitalize">{user.role}</span>
             </div>
-          </DropdownMenuItem>
-        ))}
+          </div>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
@@ -64,10 +58,6 @@ export function AccountSwitcher({
           <DropdownMenuItem>
             <CreditCard />
             Billing
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Bell />
-            Notifications
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
