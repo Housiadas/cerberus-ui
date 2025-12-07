@@ -4,7 +4,7 @@ import React from "react";
 
 import { Menu } from "lucide-react";
 
-import { AuthButtons } from "../buttons/auth-buttons";
+import { AuthButtons } from "../button/auth-buttons";
 import { Logo } from "../logo";
 
 import { NavDesktop } from "./nav-desktop";
@@ -27,7 +27,7 @@ export function NavMain() {
           <AuthButtons />
 
           {/* Mobile menu button */}
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-foreground p-2 md:hidden">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 text-white md:hidden">
             <Menu className="h-6 w-6" />
           </button>
         </div>

@@ -1,11 +1,13 @@
 // barrel export
 export * from "./logo";
 export * from "./footer";
-export * from "./hero";
+
+// badge
+export * from "./badge/badge";
 
 // buttons
-export * from "./buttons/cta-buttons";
-export * from "./buttons/auth-buttons";
+export * from "./button/cta-buttons";
+export * from "./button/auth-buttons";
 
 // navigation
 export * from "./navigation/nav-main";
@@ -13,4 +15,4 @@ export * from "./navigation/nav-desktop";
 export * from "./navigation/nav-mobile";
 
 // features
-export * from "./sections/features";
+export * from "./section/features";

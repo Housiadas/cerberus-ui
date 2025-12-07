@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { ArrowRight } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 
 export function CTAButtons() {
@@ -7,8 +9,11 @@ export function CTAButtons() {
     <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
       <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
         <Link prefetch={false} href="/auth/register">
-          <Button size="lg" className="bg-background hover:bg-background/70 px-8 text-lg text-black">
-            Register
+          <Button
+            size="lg"
+            className="bg-[oklch(0.6723_0.1606_244.9955)] px-8 text-lg text-black text-white hover:bg-[oklch(0.6723_0.1606_244.9955)]/90"
+          >
+            Register <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </Link>
         <Link prefetch={false} href="/more">

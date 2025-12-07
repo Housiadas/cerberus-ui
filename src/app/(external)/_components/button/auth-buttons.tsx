@@ -11,7 +11,9 @@ export function AuthButtons() {
         </Button>
       </Link>
       <Link prefetch={false} href="/auth/register">
-        <Button className="bg-background hover:bg-background/70 w-full text-black">Register</Button>
+        <Button className="w-full bg-[oklch(0.6723_0.1606_244.9955)] text-white hover:bg-[oklch(0.6723_0.1606_244.9955)]/90">
+          Register
+        </Button>
       </Link>
     </div>
   );

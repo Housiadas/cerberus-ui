@@ -6,6 +6,9 @@ export function NavDesktop() {
       <Link prefetch={false} href="/price" className="text-gray-400 transition-colors hover:text-white">
         Pricing
       </Link>
+      <Link prefetch={false} href="/more" className="text-gray-400 transition-colors hover:text-white">
+        Docs
+      </Link>
       <Link prefetch={false} href="/about" className="text-gray-400 transition-colors hover:text-white">
         About
       </Link>
