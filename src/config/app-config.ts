@@ -30,7 +30,7 @@ export const APP_CONFIG: Config = {
   contentLayout: "centered",
   sidebarVariant: "inset",
   sidebarCollapsible: "icon",
-  navbarStyle: "sticky",
+  navbarStyle: "scroll",
   meta: {
     title: "",
     description: "",

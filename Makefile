@@ -41,4 +41,4 @@ docker/clean:
 ## next/dev: Start next dev
 .PHONY: next/dev
 next/dev:
-	$(DOCKER_COMPOSE_LOCAL) npm run dev
+	$(DOCKER_COMPOSE_LOCAL) pnpm run dev

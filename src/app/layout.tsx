@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   const themeMode: ThemeMode = "light";
-  const themePreset: ThemePreset = "default";
+  const themePreset: ThemePreset = APP_CONFIG.themePreset;
 
   return (
     <html lang="en" className={themeMode} data-theme-preset={themePreset} suppressHydrationWarning>
