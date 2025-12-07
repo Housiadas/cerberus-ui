@@ -1,6 +1,6 @@
 import { Hero, Features } from "../_components";
 
-export default function About() {
+export default function LearMore() {
   return (
     <>
       {/* Hero Section */}

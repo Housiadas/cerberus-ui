@@ -26,13 +26,13 @@ export const APP_CONFIG: Config = {
   name: "Cerberus",
   version: packageJson.version,
   copyright: `© ${currentYear}, Cerberus.`,
-  themePreset: "default",
+  themePreset: "vercel",
   contentLayout: "centered",
   sidebarVariant: "inset",
   sidebarCollapsible: "icon",
   navbarStyle: "scroll",
   meta: {
-    title: "",
+    title: "Cerberus",
     description: "",
   },
 };
