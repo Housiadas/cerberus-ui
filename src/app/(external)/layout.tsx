@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 
 import { Footer, NavMain } from "./_components";
-import { ContactSection } from "./_components/section/contact-us";
 
 export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   return (
@@ -10,9 +9,6 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
       <NavMain />
 
       {children}
-
-      {/* Contact us CTA */}
-      <ContactSection />
 
       {/* Footer */}
       <Footer />

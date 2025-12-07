@@ -14,5 +14,6 @@ export * from "./navigation/nav-main";
 export * from "./navigation/nav-desktop";
 export * from "./navigation/nav-mobile";
 
-// features
+// section
 export * from "./section/features";
+export * from "./section/contact-us";

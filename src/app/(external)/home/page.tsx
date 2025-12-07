@@ -1,4 +1,4 @@
-import { FeaturesSection, Badge, CTAButtons } from "../_components";
+import { FeaturesSection, Badge, CTAButtons, ContactSection } from "../_components";
 
 export default function Home() {
   return (
@@ -26,6 +26,9 @@ export default function Home() {
 
       {/* Features Section */}
       <FeaturesSection />
+
+      {/* Contact us CTA */}
+      <ContactSection />
     </>
   );
 }
