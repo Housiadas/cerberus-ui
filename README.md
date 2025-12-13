@@ -20,27 +20,6 @@ The UI of Cerberus.
 - **Tables & Data Handling**: TanStack Table  
 - **Tooling & DX**: ESLint, Prettier, Husky  
 
-## Screens
-
-### Available
-- Default Dashboard  
-- CRM Dashboard  
-- Finance Dashboard  
-- Authentication (4 screens)
-
-### Coming Soon
-- Analytics Dashboard  
-- eCommerce Dashboard  
-- Academy Dashboard  
-- Logistics Dashboard  
-- Email Page  
-- Chat Page  
-- Calendar Page  
-- Kanban Board  
-- Invoice Page  
-- Users Management  
-- Roles Management  
-
 ## Colocation File System Architecture
 
 This project follows a **colocation-based architecture** each feature keeps its own pages, components, and logic inside its route folder.  
@@ -48,30 +27,14 @@ Shared UI, hooks, and configuration live at the top level, making the codebase m
 
 For a full breakdown of the structure with examples, see the [Next Colocation Template](https://github.com/arhamkhnz/next-colocation-template).
 
-## Getting Started
+## Run locally
 
-You can run this project locally, or deploy it instantly with Vercel.
+**Install dependencies**
+```bash
+pnpm install
+```
 
-### Run locally
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/arhamkhnz/next-shadcn-admin-dashboard.git
-   ```
-   
-2. **Navigate into the project**
-   ```bash
-    cd next-shadcn-admin-dashboard
-   ```
-   
-3. **Install dependencies**
-   ```bash
-    npm install
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-Your app will be running at [http://localhost:3000](http://localhost:3000)
+**Start the development server**
+```bash
+pnpm run dev
+```

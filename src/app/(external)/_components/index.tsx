@@ -15,5 +15,5 @@ export * from "./navigation/nav-desktop";
 export * from "./navigation/nav-mobile";
 
 // section
-export * from "./section/features";
-export * from "./section/contact-us";
+export * from "./navigation/section/features";
+export * from "./navigation/section/contact-us";

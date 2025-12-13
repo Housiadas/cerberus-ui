@@ -3,13 +3,14 @@ import {
   ReceiptText,
   Users,
   Lock,
-  Fingerprint,
   LayoutDashboard,
   ChartBar,
   Banknote,
   Gauge,
   type LucideIcon,
 } from "lucide-react";
+
+import { DashboardRoutes } from "../routes";
 
 export interface NavSubItem {
   title: string;
@@ -42,26 +43,26 @@ export const sidebarItems: NavGroup[] = [
     label: "Pages",
     items: [
       {
-        title: "Default",
-        url: "/dashboard/default",
+        title: "Dashboard",
+        url: DashboardRoutes.DASHBOARD,
         icon: LayoutDashboard,
       },
       {
         title: "CRM",
-        url: "/dashboard/crm",
+        url: DashboardRoutes.CRM,
         icon: ChartBar,
       },
       {
         title: "Finance",
-        url: "/dashboard/finance",
+        url: DashboardRoutes.FINANCE,
         icon: Banknote,
       },
-      {
-        title: "Analytics",
-        url: "/dashboard/coming-soon",
-        icon: Gauge,
-        comingSoon: true,
-      },
+      // {
+      //   title: "Analytics",
+      //   url: DashboardRoutes.ANALYTICS,
+      //   icon: Gauge,
+      //   comingSoon: true,
+      // },
     ],
   },
   {
@@ -70,35 +71,35 @@ export const sidebarItems: NavGroup[] = [
     items: [
       {
         title: "Users",
-        url: "/dashboard/admin/users",
+        url: DashboardRoutes.ADMIN_USERS,
         icon: Users,
       },
       {
         title: "Roles",
-        url: "/dashboard/admin/roles",
+        url: DashboardRoutes.ADMIN_ROLES,
         icon: Lock,
       },
       {
         title: "Invoice",
-        url: "/dashboard/coming-soon",
+        url: DashboardRoutes.COMMING_SOON,
         icon: ReceiptText,
       },
       {
         title: "Email",
-        url: "/dashboard/coming-soon",
+        url: DashboardRoutes.COMMING_SOON,
         icon: Mail,
       },
-      {
-        title: "Authentication",
-        url: "/auth",
-        icon: Fingerprint,
-        subItems: [
-          { title: "Login v1", url: "/auth/v1/login", newTab: true },
-          { title: "Login v2", url: "/auth/v2/login", newTab: true },
-          { title: "Register v1", url: "/auth/v1/register", newTab: true },
-          { title: "Register v2", url: "/auth/v2/register", newTab: true },
-        ],
-      },
+      // {
+      //   title: "Authentication",
+      //   url: "/auth",
+      //   icon: Fingerprint,
+      //   subItems: [
+      //     { title: "Login v1", url: "/auth/v1/login", newTab: true },
+      //     { title: "Login v2", url: "/auth/v2/login", newTab: true },
+      //     { title: "Register v1", url: "/auth/v1/register", newTab: true },
+      //     { title: "Register v2", url: "/auth/v2/register", newTab: true },
+      //   ],
+      // },
     ],
   },
 ];

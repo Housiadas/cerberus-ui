@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 import { APP_CONFIG } from "@/config/app-config";
 import { rootUser } from "@/data/user";
+import { DashboardRoutes } from "@/navigation/routes";
 import { sidebarItems } from "@/navigation/sidebar/sidebar-items";
 
 import { SidebarUser } from "../user/sidebar-user";
@@ -28,7 +29,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
-              <Link prefetch={false} href="/dashboard/default">
+              <Link prefetch={false} href={DashboardRoutes.DASHBOARD}>
                 <Command />
                 <span className="text-base font-semibold">{APP_CONFIG.name}</span>
               </Link>

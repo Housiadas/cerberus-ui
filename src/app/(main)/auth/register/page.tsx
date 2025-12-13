@@ -2,10 +2,11 @@ import Link from "next/link";
 
 import { Command } from "lucide-react";
 
-import { RegisterForm } from "../_components/register-form";
-import { GoogleButton } from "../_components/social-auth/google-button";
+import { AuthRoutes } from "@/navigation/routes";
 
-export default function RegisterV1() {
+import { RegisterForm, GoogleButton } from "../_components";
+
+export default function Register() {
   return (
     <div className="flex h-dvh">
       <div className="bg-background flex w-full items-center justify-center p-8 lg:w-2/3">
@@ -21,7 +22,7 @@ export default function RegisterV1() {
             <GoogleButton className="w-full" variant="outline" />
             <p className="text-muted-foreground text-center text-xs">
               Already have an account?{" "}
-              <Link prefetch={false} href="login" className="text-primary">
+              <Link prefetch={false} href={AuthRoutes.LOGIN} className="text-primary">
                 Login
               </Link>
             </p>

@@ -1,17 +1,18 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { PublicRoutes } from "@/navigation/routes";
 
 export function NavMobile() {
   return (
     <div className="border-border space-y-3 border-t border-zinc-800 py-4 md:hidden">
-      <Link prefetch={false} href="/pricing" className="block py-2 text-gray-400 hover:text-white">
+      <Link prefetch={false} href={PublicRoutes.PRICE} className="block py-2 text-gray-400 hover:text-white">
         Pricing
       </Link>
-      <Link prefetch={false} href="/docs" className="block py-2 text-gray-400 hover:text-white">
+      <Link prefetch={false} href={PublicRoutes.MORE} className="block py-2 text-gray-400 hover:text-white">
         Docs
       </Link>
-      <Link prefetch={false} href="/about" className="block py-2 text-gray-400 hover:text-white">
+      <Link prefetch={false} href={PublicRoutes.ABOUT} className="block py-2 text-gray-400 hover:text-white">
         About
       </Link>
       <div className="space-y-2 pt-4">

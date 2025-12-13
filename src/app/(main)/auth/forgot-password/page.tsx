@@ -6,7 +6,7 @@ import { AuthRoutes } from "@/navigation/routes";
 
 import { LoginForm, GoogleButton } from "../_components";
 
-export default function Login() {
+export default function ForgotPassword() {
   return (
     <div className="flex h-dvh">
       <div className="bg-primary hidden lg:block lg:w-1/3">
