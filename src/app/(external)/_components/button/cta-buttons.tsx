@@ -12,7 +12,7 @@ export function CTAButtons() {
         <Link prefetch={false} href={AuthRoutes.REGISTER}>
           <Button
             size="lg"
-            className="bg-[oklch(0.6723_0.1606_244.9955)] px-8 text-lg text-black text-white hover:bg-[oklch(0.6723_0.1606_244.9955)]/90"
+            className="bg-[oklch(0.6723_0.1606_244.9955)] px-8 text-black text-lg text-white hover:bg-[oklch(0.6723_0.1606_244.9955)]/90"
           >
             Register <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

@@ -1,14 +1,4 @@
-import {
-  Mail,
-  ReceiptText,
-  Users,
-  Lock,
-  LayoutDashboard,
-  ChartBar,
-  Banknote,
-  Gauge,
-  type LucideIcon,
-} from "lucide-react";
+import { Banknote, ChartBar, LayoutDashboard, Lock, type LucideIcon, Mail, ReceiptText, Users } from "lucide-react";
 
 import { DashboardRoutes } from "../routes";
 

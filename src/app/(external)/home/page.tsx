@@ -1,4 +1,4 @@
-import { FeaturesSection, Badge, CTAButtons, ContactSection } from "../_components";
+import { Badge, ContactSection, CTAButtons, FeaturesSection } from "../_components";
 
 export default function Home() {
   return (
@@ -8,14 +8,14 @@ export default function Home() {
         <div className="space-y-8 text-center">
           {/* Main Heading */}
           <Badge title="Home" />
-          <h1 className="text-5xl leading-tight font-bold md:text-7xl">
+          <h1 className="font-bold text-5xl leading-tight md:text-7xl">
             <span className="text-white">Build Something</span>
             <br />
             <span className="text-white">Extraordinary</span>
           </h1>
 
           {/* Subheading */}
-          <p className="mx-auto max-w-2xl text-xl text-gray-400">
+          <p className="mx-auto max-w-2xl text-gray-400 text-xl">
             Transform your ideas into reality with our powerful platform. Fast, secure, and designed for the modern web.
           </p>
 

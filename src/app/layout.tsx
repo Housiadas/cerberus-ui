@@ -1,12 +1,13 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+
+import { Inter } from "next/font/google";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
 import { Toaster } from "@/components/ui/sonner";
 import { APP_CONFIG } from "@/config/app-config";
+import type { ThemeMode, ThemePreset } from "@/lib/preferences/theme";
 import { PreferencesStoreProvider } from "@/stores/preferences/preferences-provider";
-import { type ThemePreset, type ThemeMode } from "@/types/preferences/theme";
 
 import "./globals.css";
 

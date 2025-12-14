@@ -1,12 +1,11 @@
 import { UserPen } from "lucide-react";
-import { z } from "zod";
+import type { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -14,10 +13,9 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-import { sectionSchema } from "./schema";
+import type { sectionSchema } from "./schema";
 
 export function TableCellViewer({ item }: { item: z.infer<typeof sectionSchema> }) {
   const isMobile = useIsMobile();
@@ -25,7 +23,7 @@ export function TableCellViewer({ item }: { item: z.infer<typeof sectionSchema> 
   return (
     <Drawer direction={isMobile ? "bottom" : "right"}>
       <DrawerTrigger asChild>
-        <Button variant="link" className="text-foreground w-fit px-0 text-left">
+        <Button variant="link" className="w-fit px-0 text-left text-foreground">
           {item.name}
         </Button>
       </DrawerTrigger>

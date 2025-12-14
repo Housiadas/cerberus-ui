@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { Plus } from "lucide-react";
-import { z } from "zod";
+import type { z } from "zod";
 
 import { DataTable as DataTableNew } from "@/components/data-table/data-table";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
@@ -14,7 +14,7 @@ import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { useDataTableInstance } from "@/hooks/use-data-table-instance";
 
 import { dashboardColumns } from "./columns";
-import { sectionSchema } from "./schema";
+import type { sectionSchema } from "./schema";
 
 export function DataTable({ data: initialData }: { data: z.infer<typeof sectionSchema>[] }) {
   const [data, setData] = React.useState(() => initialData);
@@ -40,13 +40,13 @@ export function DataTable({ data: initialData }: { data: z.infer<typeof sectionS
         <DataTablePagination table={table} />
       </TabsContent>
       <TabsContent value="past-performance" className="flex flex-col">
-        <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
+        <div className="aspect-video w-full flex-1 rounded-lg border border-dashed" />
       </TabsContent>
       <TabsContent value="key-personnel" className="flex flex-col">
-        <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
+        <div className="aspect-video w-full flex-1 rounded-lg border border-dashed" />
       </TabsContent>
       <TabsContent value="focus-documents" className="flex flex-col">
-        <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
+        <div className="aspect-video w-full flex-1 rounded-lg border border-dashed" />
       </TabsContent>
     </Tabs>
   );
