@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { cookies } from "next/headers";
 
@@ -6,13 +6,8 @@ import { AppSidebar } from "@/app/(main)/dashboard/_components/sidebar/app-sideb
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { APP_CONFIG } from "@/config/app-config";
 import { user } from "@/data/user";
+import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
 import { cn } from "@/lib/utils";
-import {
-  type SidebarVariant,
-  type SidebarCollapsible,
-  type ContentLayout,
-  type NavbarStyle,
-} from "@/types/preferences/layout";
 
 import { Account, ThemeSwitcher } from "./_components/sidebar";
 
@@ -41,7 +36,7 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
           className={cn(
             "flex h-12 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12",
             // Handle sticky navbar style with conditional classes so blur, background, z-index, and rounded corners remain consistent across all SidebarVariant layouts.
-            "data-[navbar-style=sticky]:bg-background/50 data-[navbar-style=sticky]:sticky data-[navbar-style=sticky]:top-0 data-[navbar-style=sticky]:z-50 data-[navbar-style=sticky]:overflow-hidden data-[navbar-style=sticky]:rounded-t-[inherit] data-[navbar-style=sticky]:backdrop-blur-md",
+            "data-[navbar-style=sticky]:sticky data-[navbar-style=sticky]:top-0 data-[navbar-style=sticky]:z-50 data-[navbar-style=sticky]:overflow-hidden data-[navbar-style=sticky]:rounded-t-[inherit] data-[navbar-style=sticky]:bg-background/50 data-[navbar-style=sticky]:backdrop-blur-md",
           )}
         >
           <div className="flex w-full items-center justify-between px-4 lg:px-6">

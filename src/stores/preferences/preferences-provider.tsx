@@ -2,9 +2,9 @@
 
 import { createContext, useContext, useRef } from "react";
 
-import { useStore, type StoreApi } from "zustand";
+import { type StoreApi, useStore } from "zustand";
 
-import { createPreferencesStore, PreferencesState } from "./preferences-store";
+import { createPreferencesStore, type PreferencesState } from "./preferences-store";
 
 const PreferencesStoreContext = createContext<StoreApi<PreferencesState> | null>(null);
 

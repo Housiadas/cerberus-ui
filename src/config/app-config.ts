@@ -1,5 +1,5 @@
-import { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/types/preferences/layout";
-import { ThemePreset } from "@/types/preferences/theme";
+import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
+import type { ThemePreset } from "@/lib/preferences/theme";
 
 import packageJson from "../../package.json";
 

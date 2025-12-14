@@ -38,7 +38,37 @@ docker/clean:
 ## Developement
 ## ==================
 
-## next/dev: Start next dev
-.PHONY: next/dev
-next/dev:
-	$(DOCKER_COMPOSE_LOCAL) pnpm run dev
+## dev: Run developement mode
+.PHONY: dev
+dev:
+	pnpm run dev
+
+## ==================
+## Quality Control
+## ==================
+
+## format: Format files with biome
+.PHONY: fromat
+format:
+	pnpm run format
+
+## lint: Lint files with biome
+.PHONY: lint
+lint:
+	pnpm run lint
+
+## check: Check files with biome
+.PHONY: check
+check:
+	pnpm run check
+
+## check/fix: Fix files with biome
+.PHONY: check/fix
+check/fix:
+	pnpm run check:fix
+
+## check/fix/unsafe: Fix files with biome pass unsafe flag
+.PHONY: check/fix/unsafe
+check/fix/unsafe:
+	pnpm run check:fix:unsafe
+

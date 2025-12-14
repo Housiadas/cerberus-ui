@@ -5,7 +5,7 @@ import { PublicRoutes } from "@/navigation/routes";
 
 export function NavMobile() {
   return (
-    <div className="border-border space-y-3 border-t border-zinc-800 py-4 md:hidden">
+    <div className="space-y-3 border-border border-zinc-800 border-t py-4 md:hidden">
       <Link prefetch={false} href={PublicRoutes.PRICE} className="block py-2 text-gray-400 hover:text-white">
         Pricing
       </Link>

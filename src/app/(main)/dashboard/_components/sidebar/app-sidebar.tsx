@@ -19,7 +19,6 @@ import { DashboardRoutes } from "@/navigation/routes";
 import { sidebarItems } from "@/navigation/sidebar/sidebar-items";
 
 import { SidebarUser } from "../user/sidebar-user";
-
 import { NavMain } from "./nav-main";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -31,7 +30,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
               <Link prefetch={false} href={DashboardRoutes.DASHBOARD}>
                 <Command />
-                <span className="text-base font-semibold">{APP_CONFIG.name}</span>
+                <span className="font-semibold text-base">{APP_CONFIG.name}</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

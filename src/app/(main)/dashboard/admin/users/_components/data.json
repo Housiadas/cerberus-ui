@@ -1,56 +1,56 @@
 [
   {
-      "id": "1",
-      "name": "chris test 1",
-      "email": "test1@housi.com",
-      "department": "Support",
-      "status": "Active",
-      "createdAt": "02-03-2025",
-      "updatedAt": "02-03-2025"
+    "id": "1",
+    "name": "chris test 1",
+    "email": "test1@housi.com",
+    "department": "Support",
+    "status": "Active",
+    "createdAt": "02-03-2025",
+    "updatedAt": "02-03-2025"
   },
   {
-      "id": "2",
-      "name": "chris test 2",
-      "email": "test2@housi.com",
-      "department": "Support",
-      "status": "Active",
-      "createdAt": "02-03-2025",
-      "updatedAt": "02-03-2025"
+    "id": "2",
+    "name": "chris test 2",
+    "email": "test2@housi.com",
+    "department": "Support",
+    "status": "Active",
+    "createdAt": "02-03-2025",
+    "updatedAt": "02-03-2025"
   },
   {
-      "id": "3",
-      "name": "chris test 3",
-      "email": "test3@housi.com",
-      "department": "Support",
-      "status": "Active",
-      "createdAt": "02-03-2025",
-      "updatedAt": "02-03-2025"
+    "id": "3",
+    "name": "chris test 3",
+    "email": "test3@housi.com",
+    "department": "Support",
+    "status": "Active",
+    "createdAt": "02-03-2025",
+    "updatedAt": "02-03-2025"
   },
   {
-      "id": "4",
-      "name": "chris test 4",
-      "email": "test4@housi.com",
-      "department": "Support",
-      "status": "Active",
-      "createdAt": "02-03-2025",
-      "updatedAt": "02-03-2025"
+    "id": "4",
+    "name": "chris test 4",
+    "email": "test4@housi.com",
+    "department": "Support",
+    "status": "Active",
+    "createdAt": "02-03-2025",
+    "updatedAt": "02-03-2025"
   },
   {
-      "id": "5",
-      "name": "chris test 5",
-      "email": "test5@housi.com",
-      "department": "Support",
-      "status": "Active",
-      "createdAt": "02-03-2025",
-      "updatedAt": "02-03-2025"
+    "id": "5",
+    "name": "chris test 5",
+    "email": "test5@housi.com",
+    "department": "Support",
+    "status": "Active",
+    "createdAt": "02-03-2025",
+    "updatedAt": "02-03-2025"
   },
   {
-      "id": "6",
-      "name": "chris test 6",
-      "email": "test6@housi.com",
-      "department": "Support",
-      "status": "Active",
-      "createdAt": "02-03-2025",
-      "updatedAt": "02-03-2025"
+    "id": "6",
+    "name": "chris test 6",
+    "email": "test6@housi.com",
+    "department": "Support",
+    "status": "Active",
+    "createdAt": "02-03-2025",
+    "updatedAt": "02-03-2025"
   }
 ]

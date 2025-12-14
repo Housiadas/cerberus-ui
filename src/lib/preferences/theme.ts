@@ -1,16 +1,9 @@
 export const THEME_MODE_OPTIONS = [
-  {
-    label: "Light",
-    value: "light",
-  },
-  {
-    label: "Dark",
-    value: "dark",
-  },
+  { label: "Light", value: "light" },
+  { label: "Dark", value: "dark" },
 ] as const;
 
-export const THEME_MODE_VALUES = THEME_MODE_OPTIONS.map((m) => m.value);
-
+export const THEME_MODE_VALUES = THEME_MODE_OPTIONS.map((o) => o.value);
 export type ThemeMode = (typeof THEME_MODE_VALUES)[number];
 
 // --- generated:themePresets:start ---
@@ -61,7 +54,7 @@ export const THEME_PRESET_OPTIONS = [
     value: "twitter",
     primary: {
       light: "oklch(0.6723 0.1606 244.9955)",
-      dark: "oklch(0.6692 0.1607 245.0110)",
+      dark: "oklch(0.6692 0.1607 245.011)",
     },
   },
   {

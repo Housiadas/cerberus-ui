@@ -1,5 +1,5 @@
-import { DataTable } from "./_components/data-table";
 import data from "./_components/data.json";
+import { DataTable } from "./_components/data-table";
 
 export default function Users() {
   return (

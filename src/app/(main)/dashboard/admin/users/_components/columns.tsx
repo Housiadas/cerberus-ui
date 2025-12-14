@@ -1,6 +1,6 @@
-import { ColumnDef } from "@tanstack/react-table";
-import { CircleCheck, Loader, EllipsisVertical } from "lucide-react";
-import { z } from "zod";
+import type { ColumnDef } from "@tanstack/react-table";
+import { CircleCheck, EllipsisVertical, Loader } from "lucide-react";
+import type { z } from "zod";
 
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { sectionSchema } from "./schema";
+import type { sectionSchema } from "./schema";
 import { TableCellViewer } from "./table-cell-viewer";
 
 export const dashboardColumns: ColumnDef<z.infer<typeof sectionSchema>>[] = [
@@ -69,9 +69,9 @@ export const dashboardColumns: ColumnDef<z.infer<typeof sectionSchema>>[] = [
     accessorKey: "status",
     header: ({ column }) => <DataTableColumnHeader column={column} title="Status" />,
     cell: ({ row }) => (
-      <Badge variant="outline" className="text-muted-foreground px-1.5">
+      <Badge variant="outline" className="px-1.5 text-muted-foreground">
         {row.original.status === "Done" ? (
-          <CircleCheck className="stroke-border fill-green-500 dark:fill-green-400" />
+          <CircleCheck className="fill-green-500 stroke-border dark:fill-green-400" />
         ) : (
           <Loader />
         )}
@@ -85,7 +85,7 @@ export const dashboardColumns: ColumnDef<z.infer<typeof sectionSchema>>[] = [
     cell: () => (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="data-[state=open]:bg-muted text-muted-foreground flex size-8" size="icon">
+          <Button variant="ghost" className="flex size-8 text-muted-foreground data-[state=open]:bg-muted" size="icon">
             <EllipsisVertical />
             <span className="sr-only">Open menu</span>
           </Button>

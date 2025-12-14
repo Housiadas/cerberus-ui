@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Check, X, ArrowRight, Zap, Star, Building } from "lucide-react";
+import { ArrowRight, Building, Check, Star, X, Zap } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -79,12 +79,12 @@ export default function PricingPage() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
         <div className="space-y-6 text-center">
           <Badge title="Simple, Transparent Pricing" />
-          <h1 className="text-4xl leading-tight font-bold text-white md:text-6xl">
+          <h1 className="font-bold text-4xl text-white leading-tight md:text-6xl">
             Choose the Perfect Plan
             <br />
             <span className="text-white">for Your Needs</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-xl text-gray-400">
+          <p className="mx-auto max-w-3xl text-gray-400 text-xl">
             Start free and scale as you grow. No hidden fees, no surprises.
           </p>
 
@@ -94,6 +94,7 @@ export default function PricingPage() {
               Monthly
             </span>
             <button
+              type="button"
               onClick={() => setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly")}
               className="relative h-7 w-14 rounded-full bg-white/10 transition-colors hover:bg-white/20"
             >
@@ -106,7 +107,7 @@ export default function PricingPage() {
             <span className={`text-lg ${billingCycle === "yearly" ? "font-semibold text-white" : "text-gray-400"}`}>
               Yearly
             </span>
-            <span className="rounded-full bg-[oklch(0.6723_0.1606_244.9955)]/10 px-3 py-1 text-sm text-[oklch(0.6723_0.1606_244.9955)]">
+            <span className="rounded-full bg-[oklch(0.6723_0.1606_244.9955)]/10 px-3 py-1 text-[oklch(0.6723_0.1606_244.9955)] text-sm">
               Save 17%
             </span>
           </div>
@@ -131,7 +132,7 @@ export default function PricingPage() {
               >
                 {plan.highlighted && (
                   <div className="mb-4 text-center">
-                    <span className="inline-block rounded-full bg-[oklch(0.6723_0.1606_244.9955)] px-4 py-1 text-sm font-semibold text-white">
+                    <span className="inline-block rounded-full bg-[oklch(0.6723_0.1606_244.9955)] px-4 py-1 font-semibold text-sm text-white">
                       Most Popular
                     </span>
                   </div>
@@ -145,17 +146,17 @@ export default function PricingPage() {
                   >
                     <Icon className={`h-6 w-6 ${plan.highlighted ? "text-white" : "text-black"}`} />
                   </div>
-                  <h3 className="mb-2 text-2xl font-bold text-white">{plan.name}</h3>
-                  <p className="text-sm text-gray-400">{plan.description}</p>
+                  <h3 className="mb-2 font-bold text-2xl text-white">{plan.name}</h3>
+                  <p className="text-gray-400 text-sm">{plan.description}</p>
                 </div>
 
                 <div className="mb-6 text-center">
                   <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold text-white">${price}</span>
+                    <span className="font-bold text-5xl text-white">${price}</span>
                     <span className="ml-2 text-gray-400">/{billingCycle === "monthly" ? "mo" : "yr"}</span>
                   </div>
                   {billingCycle === "yearly" && price > 0 && (
-                    <p className="mt-2 text-sm text-gray-400">${(price / 12).toFixed(2)} per month, billed annually</p>
+                    <p className="mt-2 text-gray-400 text-sm">${(price / 12).toFixed(2)} per month, billed annually</p>
                   )}
                 </div>
 
@@ -192,8 +193,8 @@ export default function PricingPage() {
       {/* Feature Comparison */}
       <div id="features" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-12 space-y-4 text-center">
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Compare All Features</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400">
+          <h2 className="font-bold text-3xl text-white md:text-4xl">Compare All Features</h2>
+          <p className="mx-auto max-w-2xl text-gray-400 text-lg">
             See the complete breakdown of what&apos;s included in each plan
           </p>
         </div>
@@ -212,31 +213,31 @@ export default function PricingPage() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-t border-white/10">
+                <tr className="border-white/10 border-t">
                   <td className="p-6 text-gray-400">Projects</td>
                   <td className="p-6 text-center text-white">1</td>
                   <td className="bg-[oklch(0.6723_0.1606_244.9955)]/5 p-6 text-center text-white">Unlimited</td>
                   <td className="p-6 text-center text-white">Unlimited</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-white/10 border-t">
                   <td className="p-6 text-gray-400">Storage</td>
                   <td className="p-6 text-center text-white">5GB</td>
                   <td className="bg-[oklch(0.6723_0.1606_244.9955)]/5 p-6 text-center text-white">50GB</td>
                   <td className="p-6 text-center text-white">Unlimited</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-white/10 border-t">
                   <td className="p-6 text-gray-400">API Calls</td>
                   <td className="p-6 text-center text-white">10K/mo</td>
                   <td className="bg-[oklch(0.6723_0.1606_244.9955)]/5 p-6 text-center text-white">100K/mo</td>
                   <td className="p-6 text-center text-white">Unlimited</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-white/10 border-t">
                   <td className="p-6 text-gray-400">Team Members</td>
                   <td className="p-6 text-center text-white">1</td>
                   <td className="bg-[oklch(0.6723_0.1606_244.9955)]/5 p-6 text-center text-white">5</td>
                   <td className="p-6 text-center text-white">Unlimited</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-white/10 border-t">
                   <td className="p-6 text-gray-400">Support</td>
                   <td className="p-6 text-center text-white">Community</td>
                   <td className="bg-[oklch(0.6723_0.1606_244.9955)]/5 p-6 text-center text-white">Email</td>
@@ -251,13 +252,13 @@ export default function PricingPage() {
       {/* FAQ Section */}
       <div id="faq" className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-12 space-y-4 text-center">
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Frequently Asked Questions</h2>
-          <p className="text-lg text-gray-400">Have questions? We have answers.</p>
+          <h2 className="font-bold text-3xl text-white md:text-4xl">Frequently Asked Questions</h2>
+          <p className="text-gray-400 text-lg">Have questions? We have answers.</p>
         </div>
 
         <div className="space-y-4">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <h3 className="mb-2 text-xl font-semibold text-white">Can I change plans later?</h3>
+            <h3 className="mb-2 font-semibold text-white text-xl">Can I change plans later?</h3>
             <p className="text-gray-400">
               Yes! You can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing
               cycle.
@@ -265,14 +266,14 @@ export default function PricingPage() {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <h3 className="mb-2 text-xl font-semibold text-white">Is there a free trial?</h3>
+            <h3 className="mb-2 font-semibold text-white text-xl">Is there a free trial?</h3>
             <p className="text-gray-400">
               Yes, all paid plans come with a 14-day free trial. No credit card required to start.
             </p>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <h3 className="mb-2 text-xl font-semibold text-white">What payment methods do you accept?</h3>
+            <h3 className="mb-2 font-semibold text-white text-xl">What payment methods do you accept?</h3>
             <p className="text-gray-400">
               We accept all major credit cards (Visa, Mastercard, American Express) and PayPal. Enterprise customers can
               also pay via invoice.
@@ -280,7 +281,7 @@ export default function PricingPage() {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <h3 className="mb-2 text-xl font-semibold text-white">Can I cancel anytime?</h3>
+            <h3 className="mb-2 font-semibold text-white text-xl">Can I cancel anytime?</h3>
             <p className="text-gray-400">
               Absolutely. There are no long-term contracts. You can cancel your subscription at any time from your
               account settings.
@@ -292,8 +293,8 @@ export default function PricingPage() {
       {/* CTA Section */}
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-[oklch(0.6723_0.1606_244.9955)]/20 to-transparent p-12 text-center md:p-16">
-          <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">Still Have Questions?</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-400">
+          <h2 className="mb-6 font-bold text-3xl text-white md:text-5xl">Still Have Questions?</h2>
+          <p className="mx-auto mb-8 max-w-2xl text-gray-400 text-xl">
             Our team is here to help you find the perfect plan for your needs.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

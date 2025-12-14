@@ -1,17 +1,18 @@
+"use no memo";
 import * as React from "react";
 
 import {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
+  type ColumnDef,
+  type ColumnFiltersState,
   getCoreRowModel,
   getFacetedRowModel,
   getFacetedUniqueValues,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  type SortingState,
   useReactTable,
+  type VisibilityState,
 } from "@tanstack/react-table";
 
 type UseDataTableInstanceProps<TData, TValue> = {
