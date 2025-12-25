@@ -43,6 +43,11 @@ docker/clean:
 dev:
 	pnpm run dev
 
+## update: Update dependencies
+.PHONY: update
+update:
+	pnpm update
+
 ## ==================
 ## Quality Control
 ## ==================
