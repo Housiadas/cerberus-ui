@@ -62,7 +62,7 @@ lint:
 check:
 	pnpm run check
 
-## check/fix: Fix files with biome
+## check/fix: Format, lint, and organize imports of all files
 .PHONY: check/fix
 check/fix:
 	pnpm run check:fix
