@@ -1,38 +1,36 @@
-import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
-import type { ThemePreset } from "@/lib/preferences/theme";
-
 import packageJson from "../../package.json";
+import type { Layout } from "./layout";
+import type { Meta } from "./meta";
+import type { Server } from "./server";
 
 export interface Config {
   name: string;
   version: string;
   copyright: string;
-  themePreset: ThemePreset;
-  contentLayout: ContentLayout;
-  sidebarVariant: SidebarVariant;
-  sidebarCollapsible: SidebarCollapsible;
-  navbarStyle: NavbarStyle;
+  server: Server;
+  layout: Layout;
   meta: Meta;
 }
 
-export interface Meta {
-  title: string;
-  description: string;
-}
-
+const appName = process.env.NEXT_PUBLIC_APP_NAME || "Cerberus";
 const currentYear = new Date().getFullYear();
 
 export const APP_CONFIG: Config = {
-  name: "Cerberus",
+  name: appName,
   version: packageJson.version,
-  copyright: `© ${currentYear}, Cerberus.`,
-  themePreset: "vercel",
-  contentLayout: "centered",
-  sidebarVariant: "inset",
-  sidebarCollapsible: "icon",
-  navbarStyle: "scroll",
+  server: {
+    url: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:4000",
+  },
+  layout: {
+    themePreset: "default",
+    contentLayout: "centered",
+    sidebarVariant: "inset",
+    sidebarCollapsible: "icon",
+    navbarStyle: "scroll",
+  },
   meta: {
-    title: "Cerberus",
+    title: appName,
     description: "",
   },
+  copyright: `© ${currentYear}, ${appName}.`,
 };

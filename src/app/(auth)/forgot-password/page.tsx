@@ -2,11 +2,11 @@ import Link from "next/link";
 
 import { Command } from "lucide-react";
 
-import { AuthRoutes } from "@/navigation/routes";
+import { AuthRoutes } from "@/lib/constants";
 
 import { GoogleButton, LoginForm } from "../_components";
 
-export default function Login() {
+export default function ForgotPassword() {
   return (
     <div className="flex h-dvh">
       <div className="hidden bg-primary lg:block lg:w-1/3">

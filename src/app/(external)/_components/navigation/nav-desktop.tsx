@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { PublicRoutes } from "@/navigation/routes";
+import { PublicRoutes } from "@/lib/constants";
 
 export function NavDesktop() {
   return (

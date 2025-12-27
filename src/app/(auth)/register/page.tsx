@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Command } from "lucide-react";
 
-import { AuthRoutes } from "@/navigation/routes";
+import { AuthRoutes } from "@/lib/constants";
 
 import { GoogleButton, RegisterForm } from "../_components";
 

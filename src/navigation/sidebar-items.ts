@@ -1,6 +1,6 @@
 import { Banknote, ChartBar, LayoutDashboard, Lock, type LucideIcon, Mail, ReceiptText, Users } from "lucide-react";
 
-import { DashboardRoutes } from "../routes";
+import { DashboardRoutes } from "@/lib/constants";
 
 export interface NavSubItem {
   title: string;

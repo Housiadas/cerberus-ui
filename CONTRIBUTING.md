@@ -1,11 +1,4 @@
-# Contributing to Studio Admin
-
-Thanks for showing interest in improving **Studio Admin** (repo: `next-shadcn-admin-dashboard`).  
-This guide will help you set up your environment and understand how to contribute.
-
----
-
-## Overview
+# Contributing
 
 This project is built with **Next.js 16**, **TypeScript**, **Tailwind CSS v4**, and **Shadcn UI**.  
 The goal is to keep the codebase modular, scalable, and easy to extend.
@@ -113,15 +106,3 @@ If you’d like a more detailed example of this setup, check out the [Next Coloc
 - Open a Pull Request once your changes are ready.  
 - Ensure your branch is up to date with `main` before submitting.  
 - Reference any related issue in your PR for context.
-
----
-
-## Questions & Support
-
-- Report bugs, suggestions, or issues via [GitHub Issues](https://github.com/arhamkhnz/next-shadcn-admin-dashboard/issues)
-
----
-
-Your contributions keep this project growing. 🚀
-
-**Happy Vibe Coding!**

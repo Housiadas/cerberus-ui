@@ -1,5 +1,9 @@
 import { Badge, ContactSection, CTAButtons, FeaturesSection } from "../_components";
 
+export const metadata = {
+  title: "Home",
+};
+
 export default function Home() {
   return (
     <>

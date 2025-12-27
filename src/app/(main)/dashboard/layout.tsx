@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 import { AppSidebar } from "@/app/(main)/dashboard/_components/sidebar/app-sidebar";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { APP_CONFIG } from "@/config/app-config";
+import { APP_CONFIG } from "@/config";
 import { user } from "@/data/user";
 import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
 import { cn } from "@/lib/utils";
@@ -14,10 +14,10 @@ import { Account, ThemeSwitcher } from "./_components/sidebar";
 export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
-  const sidebarVariant: SidebarVariant = APP_CONFIG.sidebarVariant;
-  const sidebarCollapsible: SidebarCollapsible = APP_CONFIG.sidebarCollapsible;
-  const contentLayout: ContentLayout = APP_CONFIG.contentLayout;
-  const navbarStyle: NavbarStyle = APP_CONFIG.navbarStyle;
+  const sidebarVariant: SidebarVariant = APP_CONFIG.layout.sidebarVariant;
+  const sidebarCollapsible: SidebarCollapsible = APP_CONFIG.layout.sidebarCollapsible;
+  const contentLayout: ContentLayout = APP_CONFIG.layout.contentLayout;
+  const navbarStyle: NavbarStyle = APP_CONFIG.layout.navbarStyle;
 
   return (
     <SidebarProvider defaultOpen={defaultOpen}>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { AuthRoutes } from "@/navigation/routes";
+import { AuthRoutes } from "@/lib/constants";
 
 export function AuthButtons() {
   return (

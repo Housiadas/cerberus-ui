@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { PublicRoutes } from "@/navigation/routes";
+import { PublicRoutes } from "@/lib/constants";
 
 export function NavMobile() {
   return (

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Lock } from "lucide-react";
 
-import { DashboardRoutes } from "@/navigation/routes";
+import { DashboardRoutes } from "@/lib/constants";
 
 export default function page() {
   return (
