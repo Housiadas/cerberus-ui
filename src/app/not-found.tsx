@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { DashboardRoutes } from "@/navigation/routes";
+import { DashboardRoutes } from "@/lib/constants";
 
 export default function NotFound() {
   return (

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { Command } from "lucide-react";
 
-import { APP_CONFIG } from "@/config/app-config";
-import { PublicRoutes } from "@/navigation/routes";
+import { APP_CONFIG } from "@/config";
+import { PublicRoutes } from "@/lib/constants";
 
 export function Logo() {
   return (

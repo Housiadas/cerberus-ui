@@ -13,10 +13,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { APP_CONFIG } from "@/config/app-config";
+import { APP_CONFIG } from "@/config";
 import { rootUser } from "@/data/user";
-import { DashboardRoutes } from "@/navigation/routes";
-import { sidebarItems } from "@/navigation/sidebar/sidebar-items";
+import { DashboardRoutes } from "@/lib/constants";
+import { sidebarItems } from "@/navigation/sidebar-items";
 
 import { SidebarUser } from "../user/sidebar-user";
 import { NavMain } from "./nav-main";

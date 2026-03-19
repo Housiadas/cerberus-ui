@@ -3,6 +3,10 @@ import data from "./_components/data.json";
 import { DataTable } from "./_components/data-table";
 import { SectionCards } from "./_components/section-cards";
 
+export const metadata = {
+  time: "Dashboard",
+};
+
 export default function Dashboard() {
   return (
     <div className="@container/main flex flex-col gap-4 md:gap-6">

@@ -1,6 +1,6 @@
 import { registerOTel } from "@vercel/otel";
 
-import { APP_CONFIG } from "./config/app-config";
+import { APP_CONFIG } from "@/config";
 
 export function register() {
   registerOTel({

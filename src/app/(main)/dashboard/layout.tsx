@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 import { AppSidebar } from "@/app/(main)/dashboard/_components/sidebar/app-sidebar";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { APP_CONFIG } from "@/config/app-config";
+import { APP_CONFIG } from "@/config";
 import { user } from "@/data/user";
 import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
 import { cn } from "@/lib/utils";
@@ -14,10 +14,10 @@ import { Account, ThemeSwitcher } from "./_components/sidebar";
 export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
-  const sidebarVariant: SidebarVariant = APP_CONFIG.sidebarVariant;
-  const sidebarCollapsible: SidebarCollapsible = APP_CONFIG.sidebarCollapsible;
-  const contentLayout: ContentLayout = APP_CONFIG.contentLayout;
-  const navbarStyle: NavbarStyle = APP_CONFIG.navbarStyle;
+  const sidebarVariant: SidebarVariant = APP_CONFIG.layout.sidebarVariant;
+  const sidebarCollapsible: SidebarCollapsible = APP_CONFIG.layout.sidebarCollapsible;
+  const contentLayout: ContentLayout = APP_CONFIG.layout.contentLayout;
+  const navbarStyle: NavbarStyle = APP_CONFIG.layout.navbarStyle;
 
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
@@ -25,17 +25,17 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
       <SidebarInset
         data-content-layout={contentLayout}
         className={cn(
-          "data-[content-layout=centered]:!mx-auto data-[content-layout=centered]:max-w-screen-2xl",
-          // Adds right margin for inset sidebar in centered layout up to 113rem.
+          "data-[content-layout=centered]:mx-auto! data-[content-layout=centered]:max-w-screen-2xl",
+          // Adds right margin for the inset sidebar in a centered layout up to 113rem.
           // On wider screens with collapsed sidebar, removes margin and sets margin auto for alignment.
-          "max-[113rem]:peer-data-[variant=inset]:!mr-2 min-[101rem]:peer-data-[variant=inset]:peer-data-[state=collapsed]:!mr-auto",
+          "max-[113rem]:peer-data-[variant=inset]:mr-2! min-[101rem]:peer-data-[variant=inset]:peer-data-[state=collapsed]:mr-auto!",
         )}
       >
         <header
           data-navbar-style={navbarStyle}
           className={cn(
             "flex h-12 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12",
-            // Handle sticky navbar style with conditional classes so blur, background, z-index, and rounded corners remain consistent across all SidebarVariant layouts.
+            // Handle sticky navbar style with conditional classes, so blur, background, z-index, and rounded corners remain consistent across all SidebarVariant layouts.
             "data-[navbar-style=sticky]:sticky data-[navbar-style=sticky]:top-0 data-[navbar-style=sticky]:z-50 data-[navbar-style=sticky]:overflow-hidden data-[navbar-style=sticky]:rounded-t-[inherit] data-[navbar-style=sticky]:bg-background/50 data-[navbar-style=sticky]:backdrop-blur-md",
           )}
         >

@@ -52,7 +52,7 @@ export function useDataTableInstance<TData, TValue>({
       pagination,
     },
     enableRowSelection,
-    getRowId: getRowId ?? ((row) => (row as any).id.toString()),
+    getRowId: getRowId ?? ((row) => (row as Record<string, unknown>).id as string),
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
