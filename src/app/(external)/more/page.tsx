@@ -144,8 +144,8 @@ export default function LearMore() {
         <div className="grid gap-8 md:grid-cols-3">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
             <div className="mb-4 flex items-center space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="h-5 w-5 text-[oklch(0.6723_0.1606_244.9955)]">
+              {Array.from({ length: 5 }, (_, i) => `star-${i}`).map((id) => (
+                <div key={id} className="h-5 w-5 text-[oklch(0.6723_0.1606_244.9955)]">
                   ★
                 </div>
               ))}
@@ -167,8 +167,8 @@ export default function LearMore() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
             <div className="mb-4 flex items-center space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="h-5 w-5 text-[oklch(0.6723_0.1606_244.9955)]">
+              {Array.from({ length: 5 }, (_, i) => `star-${i}`).map((id) => (
+                <div key={id} className="h-5 w-5 text-[oklch(0.6723_0.1606_244.9955)]">
                   ★
                 </div>
               ))}
@@ -190,8 +190,8 @@ export default function LearMore() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
             <div className="mb-4 flex items-center space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="h-5 w-5 text-[oklch(0.6723_0.1606_244.9955)]">
+              {Array.from({ length: 5 }, (_, i) => `star-${i}`).map((id) => (
+                <div key={id} className="h-5 w-5 text-[oklch(0.6723_0.1606_244.9955)]">
                   ★
                 </div>
               ))}

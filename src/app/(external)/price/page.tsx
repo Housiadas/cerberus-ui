@@ -117,13 +117,13 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <div id="plans" className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
-          {plans.map((plan, index) => {
+          {plans.map((plan) => {
             const Icon = plan.icon;
             const price = billingCycle === "monthly" ? plan.monthlyPrice : plan.yearlyPrice;
 
             return (
               <div
-                key={index}
+                key={plan.name}
                 className={`rounded-3xl p-8 transition-all duration-300 ${
                   plan.highlighted
                     ? "scale-105 border-2 border-[oklch(0.6723_0.1606_244.9955)] bg-gradient-to-br from-[oklch(0.6723_0.1606_244.9955)]/20 to-transparent md:scale-110"
@@ -171,8 +171,8 @@ export default function PricingPage() {
                 </Button>
 
                 <div className="space-y-3">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start space-x-3">
+                  {plan.features.map((feature) => (
+                    <div key={feature.text} className="flex items-start space-x-3">
                       {feature.included ? (
                         <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-[oklch(0.6723_0.1606_244.9955)]" />
                       ) : (
