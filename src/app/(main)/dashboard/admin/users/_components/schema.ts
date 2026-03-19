@@ -6,6 +6,6 @@ export const sectionSchema = z.object({
   email: z.string(),
   department: z.string(),
   status: z.string(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
 });

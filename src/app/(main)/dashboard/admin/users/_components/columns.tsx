@@ -2,6 +2,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { CircleCheck, EllipsisVertical, Loader } from "lucide-react";
 import type { z } from "zod";
 
+import { PermissionGate } from "@/components/auth/PermissionGate";
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -91,10 +92,13 @@ export const dashboardColumns: ColumnDef<z.infer<typeof sectionSchema>>[] = [
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-
-          <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          <PermissionGate permission="users:edit">
+            <DropdownMenuItem>Edit</DropdownMenuItem>
+          </PermissionGate>
+          <PermissionGate permission="users:delete">
+            <DropdownMenuSeparator />
+            <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          </PermissionGate>
         </DropdownMenuContent>
       </DropdownMenu>
     ),
