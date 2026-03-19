@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { APP_CONFIG } from "@/config";
 import type { ThemeMode, ThemePreset } from "@/lib/preferences/theme";
+import { AuthStoreProvider } from "@/stores/auth/auth-provider";
 import { PreferencesStoreProvider } from "@/stores/preferences/preferences-provider";
 
 import "./globals.css";
@@ -28,10 +29,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en" className={themeMode} data-theme-preset={themePreset} suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen antialiased`}>
-        <PreferencesStoreProvider themeMode={themeMode} themePreset={themePreset}>
-          {children}
-          <Toaster />
-        </PreferencesStoreProvider>
+        <AuthStoreProvider>
+          <PreferencesStoreProvider themeMode={themeMode} themePreset={themePreset}>
+            {children}
+            <Toaster />
+          </PreferencesStoreProvider>
+        </AuthStoreProvider>
       </body>
     </html>
   );
