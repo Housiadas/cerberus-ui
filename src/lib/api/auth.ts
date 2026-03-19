@@ -12,32 +12,7 @@ import type {
   User,
 } from "@/types/auth";
 
-const API_BASE = process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:4000";
-
-/** Shared helper to handle JSON responses and errors */
-const handleResponse = async <T>(response: Response): Promise<T> => {
-  if (!response.ok) {
-    throw await response.json().catch(() => ({
-      message: response.statusText,
-    }));
-  }
-
-  // 204 No Content
-  if (response.status === 204) {
-    return undefined as T;
-  }
-
-  return (await response.json()) as Promise<T>;
-};
-
-/** Build headers, optionally including a bearer token */
-const buildHeaders = (token?: string): HeadersInit => {
-  const headers: HeadersInit = { "Content-Type": "application/json" };
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-  return headers;
-};
+import { API_BASE, buildHeaders, handleResponse } from "./client";
 
 /** POST /api/v1/auth/login - Validate user credentials */
 export const authLogin = async (data: LoginReq): Promise<Token> => {
