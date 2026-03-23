@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { APP_CONFIG } from "@/config";
 import type { ThemeMode, ThemePreset } from "@/lib/preferences/theme";
+import { MSWProvider } from "@/providers/msw-provider";
+import { QueryProvider } from "@/providers/query-provider";
+import { AuthStoreProvider } from "@/stores/auth/auth-provider";
 import { PreferencesStoreProvider } from "@/stores/preferences/preferences-provider";
 
 import "./globals.css";
@@ -21,6 +24,9 @@ export const metadata: Metadata = {
   description: APP_CONFIG.meta.description,
 };
 
+const DevMSWProvider =
+  process.env.NODE_ENV === "development" ? MSWProvider : ({ children }: { children: ReactNode }) => children;
+
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   const themeMode: ThemeMode = "light";
   const themePreset: ThemePreset = APP_CONFIG.layout.themePreset;
@@ -28,10 +34,16 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en" className={themeMode} data-theme-preset={themePreset} suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen antialiased`}>
-        <PreferencesStoreProvider themeMode={themeMode} themePreset={themePreset}>
-          {children}
-          <Toaster />
-        </PreferencesStoreProvider>
+        <DevMSWProvider>
+          <AuthStoreProvider>
+            <QueryProvider>
+              <PreferencesStoreProvider themeMode={themeMode} themePreset={themePreset}>
+                {children}
+                <Toaster />
+              </PreferencesStoreProvider>
+            </QueryProvider>
+          </AuthStoreProvider>
+        </DevMSWProvider>
       </body>
     </html>
   );

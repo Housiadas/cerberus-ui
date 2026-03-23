@@ -1,24 +1,33 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useLogin } from "@/hooks/use-auth";
+import { saveSession } from "@/lib/api/session";
+import { DashboardRoutes } from "@/lib/constants";
+import { useAuthStore } from "@/stores/auth/auth-provider";
+import type { LoginReq } from "@/types/auth";
+import { loginReqSchema } from "@/types/auth";
 
-const FormSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters." }),
-  remember: z.boolean().optional(),
-});
+import { authToastOptions } from "./auth-toast";
+
+type LoginFormValues = LoginReq & { remember?: boolean };
 
 export function LoginForm() {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const router = useRouter();
+  const login = useLogin();
+  const setTokens = useAuthStore((s) => s.setTokens);
+
+  const form = useForm<LoginFormValues>({
+    resolver: zodResolver(loginReqSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -26,14 +35,20 @@ export function LoginForm() {
     },
   });
 
-  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    toast("You submitted the following values", {
-      description: (
-        <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  const onSubmit = async (data: LoginFormValues): Promise<void> => {
+    login.mutate(
+      { email: data.email, password: data.password },
+      {
+        onSuccess: async (token) => {
+          saveSession(token.accessToken, token.refreshToken);
+          setTokens(token.accessToken, token.refreshToken);
+          router.push(DashboardRoutes.DASHBOARD);
+        },
+        onError: (error) => {
+          toast.error(error.message || "Login failed", authToastOptions);
+        },
+      },
+    );
   };
 
   return (
@@ -90,8 +105,8 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button className="w-full" type="submit">
-          Login
+        <Button className="w-full" type="submit" disabled={login.isPending}>
+          {login.isPending ? "Logging in..." : "Login"}
         </Button>
       </form>
     </Form>

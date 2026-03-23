@@ -2,6 +2,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { CircleCheck, EllipsisVertical, Loader } from "lucide-react";
 import type { z } from "zod";
 
+import { PermissionGate } from "@/components/auth/PermissionGate";
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Permissions } from "@/lib/constants/permissions";
 
 import type { sectionSchema } from "./schema";
 import { TableCellViewer } from "./table-cell-viewer";
@@ -91,10 +93,13 @@ export const dashboardColumns: ColumnDef<z.infer<typeof sectionSchema>>[] = [
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-
-          <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          <PermissionGate permission={Permissions.USERS_EDIT}>
+            <DropdownMenuItem>Edit</DropdownMenuItem>
+          </PermissionGate>
+          <PermissionGate permission={Permissions.USERS_DELETE}>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          </PermissionGate>
         </DropdownMenuContent>
       </DropdownMenu>
     ),

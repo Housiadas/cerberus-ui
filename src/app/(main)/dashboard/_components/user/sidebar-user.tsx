@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { CircleUser, CreditCard, EllipsisVertical, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,18 +15,41 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
+import { useLogout } from "@/hooks/use-auth";
+import { clearSession } from "@/lib/api/session";
+import { AuthRoutes } from "@/lib/constants";
 import { getInitials } from "@/lib/utils";
+import { useAuthStore } from "@/stores/auth/auth-provider";
 
-export function SidebarUser({
-  user,
-}: {
-  readonly user: {
-    readonly name: string;
-    readonly email: string;
-    readonly avatar: string;
-  };
-}) {
+export function SidebarUser() {
   const { isMobile } = useSidebar();
+  const router = useRouter();
+  const user = useAuthStore((s) => s.user);
+  const accessToken = useAuthStore((s) => s.accessToken);
+  const refreshToken = useAuthStore((s) => s.refreshToken);
+  const storeClearSession = useAuthStore((s) => s.clearSession);
+  const logout = useLogout();
+
+  const handleLogout = (): void => {
+    if (accessToken && refreshToken) {
+      logout.mutate(
+        { refreshToken, accessToken },
+        {
+          onSettled: async () => {
+            storeClearSession();
+            clearSession();
+            router.push(AuthRoutes.LOGIN);
+          },
+        },
+      );
+    } else {
+      storeClearSession();
+      clearSession();
+      router.push(AuthRoutes.LOGIN);
+    }
+  };
+
+  if (!user) return null;
 
   return (
     <SidebarMenu>
@@ -36,7 +61,7 @@ export function SidebarUser({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg grayscale">
-                <AvatarImage src={user.avatar || undefined} alt={user.name} />
+                <AvatarImage alt={user.name} />
                 <AvatarFallback className="rounded-lg">{getInitials(user.name)}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
@@ -55,7 +80,7 @@ export function SidebarUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar || undefined} alt={user.name} />
+                  <AvatarImage alt={user.name} />
                   <AvatarFallback className="rounded-lg">{getInitials(user.name)}</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
@@ -76,7 +101,7 @@ export function SidebarUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out
             </DropdownMenuItem>

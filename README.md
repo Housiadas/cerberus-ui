@@ -1,5 +1,5 @@
 # Cerberus UI
-The UI of Cerberus.
+The UI of our dashboard and analytics platform.
 
 ## Tech Stack
 
@@ -21,10 +21,13 @@ For a full breakdown of the structure with examples, see the [Next Colocation Te
 
 **Install dependencies**
 ```bash
-pnpm install
+make install
 ```
 
 **Start the development server**
 ```bash
-pnpm run dev
+make dev
 ```
+
+### Enabling Next.js MCP Server for Coding Agents
+- [docs](https://nextjs.org/docs/app/guides/mcp)
