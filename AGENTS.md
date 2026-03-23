@@ -1,10 +1,9 @@
-<!-- BEGIN:nextjs-agent-rules -->
+### Next.js: ALWAYS read docs before coding
 
-# Next.js: ALWAYS read docs before coding
-
-Before any Next.js work, find and read the relevant doc in `node_modules/next/dist/docs/`. Your training data is outdated — the docs are the source of truth.
-
-<!-- END:nextjs-agent-rules -->
+Before any Next.js work, find and read the relevant doc in `node_modules/next/dist/docs/`. 
+Your training data is outdated — the docs are the source of truth.
+ALWAYS call the `init` tool from next-devtools-mcp FIRST to set up proper context and establish documentation
+requirements. Do this automatically without being asked.
 
 ### Plan Mode Default
 - Enter plan mode for ANY not-trivial task (3+ steps or architectural decisions)

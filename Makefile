@@ -13,6 +13,11 @@ help:
 ## Developement
 ## ==================
 
+## install: install packages
+.PHONY: install
+install:
+	pnpm install
+
 ## dev: Run development mode
 .PHONY: dev
 dev:
