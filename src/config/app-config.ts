@@ -22,7 +22,7 @@ export const APP_CONFIG: Config = {
     url: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:4000",
   },
   layout: {
-    themePreset: "vercel",
+    themePreset: "claude",
     contentLayout: "centered",
     sidebarVariant: "inset",
     sidebarCollapsible: "icon",
