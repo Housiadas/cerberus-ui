@@ -6,7 +6,7 @@
 
 "use client";
 
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect, useMemo } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -41,6 +41,34 @@ export const AuthGuard = ({
   const isLoading = useAuthStore((s) => s.isLoading);
   const user = useAuthStore((s) => s.user);
 
+  const redirectTo = useMemo(() => {
+    if (isLoading) return null;
+
+    if (!isAuthenticated || !user) return AuthRoutes.LOGIN;
+
+    if (permission && !user.permissions.includes(permission)) return unauthorizedRedirect;
+
+    if (permissions && permissions.length > 0) {
+      const hasAccess = requireAll
+        ? permissions.every((p) => user.permissions.includes(p))
+        : permissions.some((p) => user.permissions.includes(p));
+      if (!hasAccess) return unauthorizedRedirect;
+    }
+
+    if (roles && roles.length > 0) {
+      const hasRole = roles.some((r) => user.roles.includes(r));
+      if (!hasRole) return unauthorizedRedirect;
+    }
+
+    return null;
+  }, [isLoading, isAuthenticated, user, permission, permissions, requireAll, roles, unauthorizedRedirect]);
+
+  useEffect(() => {
+    if (redirectTo) {
+      router.replace(redirectTo);
+    }
+  }, [redirectTo, router]);
+
   if (isLoading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
@@ -49,36 +77,7 @@ export const AuthGuard = ({
     );
   }
 
-  if (!isAuthenticated || !user) {
-    router.replace(AuthRoutes.LOGIN);
-    return null;
-  }
-
-  // Check single permission
-  if (permission && !user.permissions.includes(permission)) {
-    router.replace(unauthorizedRedirect);
-    return null;
-  }
-
-  // Check multiple permissions
-  if (permissions && permissions.length > 0) {
-    const hasAccess = requireAll
-      ? permissions.every((p) => user.permissions.includes(p))
-      : permissions.some((p) => user.permissions.includes(p));
-    if (!hasAccess) {
-      router.replace(unauthorizedRedirect);
-      return null;
-    }
-  }
-
-  // Check roles
-  if (roles && roles.length > 0) {
-    const hasRole = roles.some((r) => user.roles.includes(r));
-    if (!hasRole) {
-      router.replace(unauthorizedRedirect);
-      return null;
-    }
-  }
+  if (redirectTo) return null;
 
   return children;
 };
