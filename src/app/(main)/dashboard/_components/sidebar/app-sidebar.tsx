@@ -14,7 +14,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { APP_CONFIG } from "@/config";
-import { rootUser } from "@/data/user";
 import { DashboardRoutes } from "@/lib/constants";
 import { sidebarItems } from "@/navigation/sidebar-items";
 
@@ -40,7 +39,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={sidebarItems} />
       </SidebarContent>
       <SidebarFooter>
-        <SidebarUser user={rootUser} />
+        <SidebarUser />
       </SidebarFooter>
     </Sidebar>
   );
