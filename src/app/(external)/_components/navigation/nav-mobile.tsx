@@ -1,27 +1,41 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { PublicRoutes } from "@/lib/constants";
+import { AuthRoutes, PublicRoutes } from "@/lib/constants";
 
 export function NavMobile() {
   return (
-    <div className="space-y-3 border-border border-zinc-800 border-t py-4 md:hidden">
-      <Link prefetch={false} href={PublicRoutes.PRICE} className="block py-2 text-gray-400 hover:text-white">
-        Pricing
+    <div className="space-y-3 border-t border-border py-4 md:hidden">
+      <Link
+        prefetch={false}
+        href={PublicRoutes.SUBSCRIPTION}
+        className="block py-2 text-muted-foreground hover:text-foreground"
+      >
+        Subscription
       </Link>
-      <Link prefetch={false} href={PublicRoutes.MORE} className="block py-2 text-gray-400 hover:text-white">
+      <Link
+        prefetch={false}
+        href={PublicRoutes.MORE}
+        className="block py-2 text-muted-foreground hover:text-foreground"
+      >
         Docs
       </Link>
-      <Link prefetch={false} href={PublicRoutes.ABOUT} className="block py-2 text-gray-400 hover:text-white">
+      <Link
+        prefetch={false}
+        href={PublicRoutes.ABOUT}
+        className="block py-2 text-muted-foreground hover:text-foreground"
+      >
         About
       </Link>
       <div className="space-y-2 pt-4">
-        <Button variant="outline" className="w-full text-white hover:bg-white/10">
-          Login
-        </Button>
-        <Button className="w-full bg-[oklch(0.6723_0.1606_244.9955)] text-black text-white hover:bg-[oklch(0.6723_0.1606_244.9955)]/90">
-          Register
-        </Button>
+        <Link prefetch={false} href={AuthRoutes.LOGIN}>
+          <Button variant="outline" className="w-full">
+            Login
+          </Button>
+        </Link>
+        <Link prefetch={false} href={AuthRoutes.REGISTER}>
+          <Button className="w-full">Register</Button>
+        </Link>
       </div>
     </div>
   );

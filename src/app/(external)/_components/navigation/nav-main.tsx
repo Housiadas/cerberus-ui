@@ -13,25 +13,20 @@ export function NavMain() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-border border-zinc-800 border-b bg-primary backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Logo />
-
-          {/* Desktop Navigation */}
           <NavDesktop />
-
-          {/* Auth Buttons */}
           <AuthButtons />
-
-          {/* Mobile menu button */}
-          <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 text-white md:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-foreground md:hidden"
+          >
             <Menu className="h-6 w-6" />
           </button>
         </div>
-
-        {/* Mobile Navigation */}
         {mobileMenuOpen && <NavMobile />}
       </div>
     </nav>
