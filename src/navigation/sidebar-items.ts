@@ -37,22 +37,6 @@ export const sidebarItems: NavGroup[] = [
         url: DashboardRoutes.DASHBOARD,
         icon: LayoutDashboard,
       },
-      {
-        title: "CRM",
-        url: DashboardRoutes.CRM,
-        icon: ChartBar,
-      },
-      {
-        title: "Finance",
-        url: DashboardRoutes.FINANCE,
-        icon: Banknote,
-      },
-      // {
-      //   title: "Analytics",
-      //   url: DashboardRoutes.ANALYTICS,
-      //   icon: Gauge,
-      //   comingSoon: true,
-      // },
     ],
   },
   {
@@ -65,19 +49,9 @@ export const sidebarItems: NavGroup[] = [
         icon: Users,
       },
       {
-        title: "Roles",
-        url: DashboardRoutes.ADMIN_ROLES,
+        title: "Permissions",
+        url: DashboardRoutes.ADMIN_PERMISSIONS,
         icon: Lock,
-      },
-      {
-        title: "Invoice",
-        url: DashboardRoutes.COMMING_SOON,
-        icon: ReceiptText,
-      },
-      {
-        title: "Email",
-        url: DashboardRoutes.COMMING_SOON,
-        icon: Mail,
       },
       // {
       //   title: "Authentication",

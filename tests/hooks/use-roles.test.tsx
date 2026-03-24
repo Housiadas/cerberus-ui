@@ -10,6 +10,7 @@ import {
   useDeleteRole,
   useListRoles,
   useRemoveRolePermission,
+  useRolePermissions,
   useUpdateRole,
 } from "@/hooks/use-roles";
 
@@ -33,6 +34,12 @@ const createWrapper = () => {
 };
 
 const mockRole = { id: "role-1", name: "admin", createdAt: "2026-01-01T00:00:00Z", updatedAt: "2026-01-01T00:00:00Z" };
+const mockPermission = {
+  id: "perm-1",
+  name: "users:read",
+  createdAt: "2026-01-01T00:00:00Z",
+  updatedAt: "2026-01-01T00:00:00Z",
+};
 
 describe("useListRoles", () => {
   it("returns paginated role list", async () => {
@@ -111,5 +118,17 @@ describe("useRemoveRolePermission", () => {
     result.current.mutate({ roleId: "role-1", permissionId: "perm-1", token: TOKEN });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+  });
+});
+
+describe("useRolePermissions", () => {
+  it("returns permissions for a role", async () => {
+    server.use(http.get(`${API_BASE}/api/v1/roles/role-1/permissions`, () => HttpResponse.json([mockPermission])));
+
+    const { result } = renderHook(() => useRolePermissions("role-1", TOKEN), { wrapper: createWrapper() });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(result.current.data).toHaveLength(1);
+    expect(result.current.data?.[0]).toMatchObject({ id: "perm-1", name: "users:read" });
   });
 });

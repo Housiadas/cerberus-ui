@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { BadgeCheck, CreditCard, LogOut } from "lucide-react";
+import { CircleUser, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useLogout } from "@/hooks/use-auth";
 import { clearSession } from "@/lib/api/session";
-import { AuthRoutes } from "@/lib/constants";
+import { AuthRoutes, DashboardRoutes } from "@/lib/constants";
 import { getInitials } from "@/lib/utils";
 import { useAuthStore } from "@/stores/auth/auth-provider";
 
@@ -71,13 +71,9 @@ export function NavUser() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <BadgeCheck />
-            Account
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CreditCard />
-            Billing
+          <DropdownMenuItem onClick={() => router.push(DashboardRoutes.PROFILE)}>
+            <CircleUser />
+            Profile
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
