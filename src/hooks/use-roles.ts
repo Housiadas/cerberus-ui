@@ -7,11 +7,13 @@ import {
   addRolePermission,
   createRole,
   deleteRole,
+  getRolePermissions,
   listRoles,
   removeRolePermission,
   updateRole,
 } from "@/lib/api/roles";
 import type { ApiError } from "@/types/auth";
+import type { Permission } from "@/types/permissions";
 import type { AddRolePermissionReq, ListRolesParams, NewRole, Role, RolePageResult, UpdateRole } from "@/types/roles";
 
 /** Roles query key factory */
@@ -19,6 +21,7 @@ export const rolesKeys = {
   all: ["roles"] as const,
   lists: () => [...rolesKeys.all, "list"] as const,
   list: (params: ListRolesParams) => [...rolesKeys.lists(), params] as const,
+  permissions: (roleId: string) => [...rolesKeys.all, "permissions", roleId] as const,
 };
 
 /** Hook for listing roles with optional filters. Requires access token. */
@@ -27,6 +30,15 @@ export const useListRoles = (params: ListRolesParams, token: string) => {
     queryKey: rolesKeys.list(params),
     queryFn: () => listRoles(params, token),
     enabled: !!token,
+  });
+};
+
+/** Hook for fetching permissions assigned to a specific role */
+export const useRolePermissions = (roleId: string, token: string) => {
+  return useQuery<Permission[], ApiError>({
+    queryKey: rolesKeys.permissions(roleId),
+    queryFn: () => getRolePermissions(roleId, token),
+    enabled: !!token && !!roleId,
   });
 };
 

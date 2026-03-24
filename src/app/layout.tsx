@@ -6,9 +6,10 @@ import type { Metadata } from "next";
 
 import { Toaster } from "@/components/ui/sonner";
 import { APP_CONFIG } from "@/config";
-import type { ThemeMode, ThemePreset } from "@/lib/preferences/theme";
+import { THEME_MODE_VALUES, THEME_PRESET_VALUES, type ThemeMode, type ThemePreset } from "@/lib/preferences/theme";
 import { MSWProvider } from "@/providers/msw-provider";
 import { QueryProvider } from "@/providers/query-provider";
+import { getPreference } from "@/server/server-actions";
 import { AuthStoreProvider } from "@/stores/auth/auth-provider";
 import { PreferencesStoreProvider } from "@/stores/preferences/preferences-provider";
 
@@ -28,8 +29,12 @@ const DevMSWProvider =
   process.env.NODE_ENV === "development" ? MSWProvider : ({ children }: { children: ReactNode }) => children;
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const themeMode: ThemeMode = "light";
-  const themePreset: ThemePreset = APP_CONFIG.layout.themePreset;
+  const themeMode = await getPreference<ThemeMode>("theme_mode", THEME_MODE_VALUES, "light");
+  const themePreset = await getPreference<ThemePreset>(
+    "theme_preset",
+    THEME_PRESET_VALUES,
+    APP_CONFIG.layout.themePreset,
+  );
 
   return (
     <html lang="en" className={themeMode} data-theme-preset={themePreset} suppressHydrationWarning>

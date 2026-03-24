@@ -81,9 +81,33 @@ let mockUsers: User[] = [
   },
 ];
 
+// The "logged-in" user matching the mock JWT (sub: "user-1")
+let mockMe: User = {
+  id: "user-1",
+  name: "Admin User",
+  email: "admin@cerberus.dev",
+  department: "Engineering",
+  enabled: true,
+  createdAt: "2025-01-01T00:00:00Z",
+  updatedAt: "2025-06-01T00:00:00Z",
+};
+
 let nextId = 9;
 
 export const userHandlers = [
+  /** GET /api/v1/users/me - must be before :userId to avoid param match */
+  http.get(`${BASE}/api/v1/users/me`, () => {
+    return HttpResponse.json(mockMe);
+  }),
+
+  /** PUT /api/v1/users/me */
+  http.put(`${BASE}/api/v1/users/me`, async ({ request }) => {
+    const body = (await request.json()) as Partial<User & { password?: string; passwordConfirm?: string }>;
+    const { password: _pw, passwordConfirm: _pwc, ...profile } = body;
+    mockMe = { ...mockMe, ...profile, updatedAt: new Date().toISOString() };
+    return HttpResponse.json(mockMe);
+  }),
+
   /** GET /api/v1/users */
   http.get(`${BASE}/api/v1/users`, ({ request }) => {
     const url = new URL(request.url);

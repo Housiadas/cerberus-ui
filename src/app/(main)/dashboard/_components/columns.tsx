@@ -3,6 +3,7 @@ import { CircleCheck, EllipsisVertical, Loader } from "lucide-react";
 import { toast } from "sonner";
 import type { z } from "zod";
 
+import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -17,7 +18,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-import { DataTableColumnHeader } from "../../../../components/data-table/data-table-column-header";
 import type { sectionSchema } from "./schema";
 import { TableCellViewer } from "./table-cell-viewer";
 

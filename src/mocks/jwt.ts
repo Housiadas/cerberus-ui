@@ -19,6 +19,8 @@ export const createMockJwt = (payload?: Partial<JwtPayload>): string => {
       "roles:read",
       "roles:edit",
       "roles:delete",
+      "permissions:read",
+      "permissions:edit",
       "finance:read",
       "finance:write",
       "crm:read",

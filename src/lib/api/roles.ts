@@ -1,6 +1,7 @@
 // Roles API client functions.
 // Each function maps to a role endpoint from the OpenAPI spec.
 
+import type { Permission } from "@/types/permissions";
 import type { AddRolePermissionReq, ListRolesParams, NewRole, Role, RolePageResult, UpdateRole } from "@/types/roles";
 
 import { API_BASE, buildHeaders, handleResponse } from "./client";
@@ -60,6 +61,15 @@ export const addRolePermission = async (roleId: string, data: AddRolePermissionR
     body: JSON.stringify(data),
   });
   return handleResponse<void>(response);
+};
+
+/** GET /api/v1/roles/:roleId/permissions - Get permissions assigned to a role */
+export const getRolePermissions = async (roleId: string, token: string): Promise<Permission[]> => {
+  const response = await fetch(`${API_BASE}/api/v1/roles/${roleId}/permissions`, {
+    method: "GET",
+    headers: buildHeaders(token),
+  });
+  return handleResponse<Permission[]>(response);
 };
 
 /** DELETE /api/v1/roles/:roleId/permission?permission_id=... - Remove a permission from a role */
